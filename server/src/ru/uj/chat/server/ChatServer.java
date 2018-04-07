@@ -17,8 +17,8 @@ public class ChatServer implements TCPConnectionListener {
 
     private ChatServer() {
         System.out.println("Server running...");
-        try(ServerSocket serverSocket = new ServerSocket(8189)) {
-            while(true) {
+        try (ServerSocket serverSocket = new ServerSocket(8189)) {
+            while (true) {
                 try {
                     new TCPConnection(this, serverSocket.accept());
                 } catch (IOException e) {
@@ -53,7 +53,7 @@ public class ChatServer implements TCPConnectionListener {
         System.out.println("TCPConnection exception: " + e);
     }
 
-    private void sendToAllConnections(String value){
+    private void sendToAllConnections(String value) {
         System.out.println(value);
         final int cnt = connections.size();
         for (int i = 0; i < cnt; i++) connections.get(i).sendString(value);

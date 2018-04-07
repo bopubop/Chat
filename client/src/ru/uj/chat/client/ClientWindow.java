@@ -57,7 +57,7 @@ public class ClientWindow extends JFrame implements ActionListener, TCPConnectio
     @Override
     public void actionPerformed(ActionEvent e) {
         String msg = fieldInput.getText();
-        if(msg.equals("")) return;
+        if (msg.equals("")) return;
         fieldInput.setText(null);
         connection.sendString(fieldNickname.getText() + ": " + msg);
     }
